@@ -1,5 +1,5 @@
 import { useNavigate,Link } from "react-router-dom";
-import {Signup} from "../components/Signup.jsx";
+import Signup from "../components/Signup.jsx";
 import Login from "../components/Login.jsx";
 import { AuthContext } from "../AuthContext/AuthContext.jsx";
 import { useEffect,useState,useContext } from "react";
