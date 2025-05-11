@@ -24,8 +24,8 @@ app.use('/api/middleware', middlewareRoute);
 
 const PORT = process.env.PORT || 5000;
 
-app.get('/api/hello', (req, res) => {
-  res.json({ message: 'Hello from Vercel serverless!' });
+app.get('/', (req, res) => {
+   res.status(200).json({message: "Hello from Server"});
 });
 
-export default app;
+module.exports = app;
