@@ -17,7 +17,7 @@ app.use(express.urlencoded({extended: true}));
 
 await connectDB();
 
-app.get("/api", (req, res) => {
+app.get("/", (req, res) => {
   res.status(200).json({messasge:"Hello from backend"});
 });
 
