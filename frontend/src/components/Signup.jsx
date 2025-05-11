@@ -25,7 +25,7 @@ const handleChange = (e) => {
 const handleSubmit = async(e)=>{
   e.preventDefault();
     try{
-      const res = await axios.post("http://localhost:5001/api/user/signup", formData);
+      const res = await axios.post("https://resume-builder-backend-f2prj0j0t-srijan-s-projects-7fb3208a.vercel.app/api/user/signup", formData);
       //console.log("Signup success:", res.data);
       toast.success('Signup successful');
     }catch(error){
