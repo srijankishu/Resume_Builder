@@ -25,7 +25,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://resume-builder-backend-f2prj0j0t-srijan-s-projects-7fb3208a.vercel.app/api/user/login', formData);
+      const res = await axios.post('https://resume-builder-backend-three.vercel.app/api/user/login', formData);
      // console.log('Login successful:', res.data);
       toast.success('Login successful');
       
