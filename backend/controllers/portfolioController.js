@@ -16,22 +16,35 @@ export const generatePortfolioFromGemini = async (req, res) => {
 
     // Construct the prompt
     const prompt = `
-      You are an expert in generating markdown-based personal portfolios.
+     You are an expert in generating markdown-based personal portfolios.
 
-      Generate a clean, modern, and professional markdown portfolio using the following details:
+     Generate a clean, modern, and professional markdown portfolio using the following user input. 
+     Use a confident yet humble tone, targeting technical recruiters and hiring managers. Do not ask for additional information or suggest improvements—generate everything from what's given.
 
-      
+     Automatically create project and experience descriptions if they're not provided.
 
-      Name: ${name}
-      Role: ${role}
-      About: ${about}
-      Skills: ${formattedSkills}
-      Experience: ${experience}
-      Projects: ${projects}
-      Links: ${formattedLinks}
+     Use this structure:
+     1. Name & Role
+     2. About Me
+     3. Skills
+     4. Experience
+     5. Projects
+     6. Links
 
-      Output in markdown format only. Use section headings, bullet points, and clean formatting.
-    `;
+     Use markdown format with proper headings (##), bullet points for skills and tasks, and make links clickable using [Label](URL) format.
+
+     If a project has only a title, generate a 2-3 sentence summary based on common conventions. For experiences with limited detail, infer realistic achievements and tasks for the role.
+
+     ---
+     Name: ${name}
+     Role: ${role}
+     About: ${about}
+     Skills: ${formattedSkills}
+     Experience: ${experience}
+     Projects: ${projects}
+     Links: ${formattedLinks}
+     ---
+     Output in markdown only.`;
 
     // Request to Gemini API
     const response = await axios.post(geminiAPIUrl, {

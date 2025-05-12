@@ -17,9 +17,9 @@ app.use(express.urlencoded({extended: true}));
 
 await connectDB();
 
-app.get("/", (req, res) => {
-  res.status(200).json({messasge:"Hello from backend"});
-});
+//app.get("/", (req, res) => {
+// res.status(200).json({messasge:"Hello from backend"});
+//});
 
 
 app.use('/api/portfolio', portfolioRoute);
@@ -27,6 +27,9 @@ app.use('/api/user', userRoute);
 app.use('/api/middleware', middlewareRoute);
 
 const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
 
 
-export default app;
+//export default app;
