@@ -25,7 +25,7 @@ const handleChange = (e) => {
 const handleSubmit = async(e)=>{
   e.preventDefault();
     try{
-      const res = await axios.post("https://resume-builder-backend-three.vercel.app/api/user/signup", formData);
+      const res = await axios.post("https://resume-builder-dzse.onrender.com/api/user/signup", formData);
       //console.log("Signup success:", res.data);
       toast.success('Signup successful');
     }catch(error){

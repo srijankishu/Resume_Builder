@@ -34,7 +34,7 @@ const Form = () => {
       };
 
       try {
-        const res = await axios.post("https://resume-builder-backend-three.vercel.app/api/portfolio/generate", formattedData);
+        const res = await axios.post("https://resume-builder-dzse.onrender.com/api/portfolio/generate", formattedData);
         console.log(res.data)
         navigate("/preview", { state: { markdown: res.data.portfolioContent } }); 
       } catch (err) {
