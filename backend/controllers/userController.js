@@ -54,13 +54,17 @@ export const login = async(req,res)=>{
             message:"user not found"
            })
         }
+         
 
          const isPasswordCorrect = await bcrypt.compare(password, user.password);
+        
+
           if (!isPasswordCorrect) {
+           
              return res.status(401).json({ message: "Invalid credentials" });
           }
 
-        const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1d' });
+        const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1h' });
         
     
 

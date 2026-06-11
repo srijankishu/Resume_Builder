@@ -6,4 +6,6 @@ dotenv.config();
 export const geminiAPIKey = process.env.GEMINI_API_KEY;
 
 // Constructing the Gemini API URL with correct version
-export const geminiAPIUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`;
+// Gemini 2.5 Flash Lite (faster, cheaper)
+export const geminiAPIUrl =
+`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${process.env.GEMINI_API_KEY}`;
