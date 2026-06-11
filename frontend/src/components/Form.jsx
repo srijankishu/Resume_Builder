@@ -35,7 +35,8 @@ const Form = () => {
 
       try {
         const res = await axios.post("https://resume-builder-dzse.onrender.com/api/portfolio/generate", formattedData);
-        console.log(res.data)
+        //console.log(res.data)
+        console.log(res.data.portfolioContent);
         navigate("/preview", { state: { markdown: res.data.portfolioContent } }); 
       } catch (err) {
         console.error("Error submitting form:", err); // Log error for debugging

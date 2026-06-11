@@ -40,7 +40,7 @@ An AI-powered portfolio generator built using the **MERN Stack** and **Google Ge
 ## 📂 Project Structure
 
 ```text
-AI-Portfolio-Generator/
+Resume_Builder/
 │
 ├── backend/
 │   ├── config/

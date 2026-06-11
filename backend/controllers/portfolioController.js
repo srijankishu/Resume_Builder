@@ -16,35 +16,100 @@ export const generatePortfolioFromGemini = async (req, res) => {
 
     // Construct the prompt
     const prompt = `
-     You are an expert in generating markdown-based personal portfolios.
+You are an expert portfolio writer and personal branding specialist.
 
-     Generate a clean, modern, and professional markdown portfolio using the following user input. 
-     Use a confident yet humble tone, targeting technical recruiters and hiring managers. Do not ask for additional information or suggest improvements—generate everything from what's given.
+Generate a professional portfolio in MARKDOWN format.
 
-     Automatically create project and experience descriptions if they're not provided.
+Requirements:
 
-     Use this structure:
-     1. Name & Role
-     2. About Me
-     3. Skills
-     4. Experience
-     5. Projects
-     6. Links
+- Return ONLY markdown.
+- Do not wrap the response in code blocks.
+- Create a professional portfolio suitable for recruiters.
+- Use proper markdown headings.
+- Make the portfolio visually structured.
+- Generate realistic experience and project descriptions when details are limited.
+- Convert skills into categorized bullet points.
+- Make links clickable using markdown syntax.
+- Use a confident and professional tone.
 
-     Use markdown format with proper headings (##), bullet points for skills and tasks, and make links clickable using [Label](URL) format.
+Portfolio Structure:
 
-     If a project has only a title, generate a 2-3 sentence summary based on common conventions. For experiences with limited detail, infer realistic achievements and tasks for the role.
+# Full Name
 
-     ---
-     Name: ${name}
-     Role: ${role}
-     About: ${about}
-     Skills: ${formattedSkills}
-     Experience: ${experience}
-     Projects: ${projects}
-     Links: ${formattedLinks}
-     ---
-     Output in markdown only.`;
+## Professional Title
+
+## About Me
+
+Write a professional summary of 4-6 lines.
+
+## Skills
+
+Categorize skills like:
+
+### Programming Languages
+- Skill
+
+### Frameworks & Libraries
+- Skill
+
+### Databases
+- Skill
+
+### Tools & Technologies
+- Skill
+
+## Experience
+
+For each experience generate:
+
+### Role Name
+
+- Achievement 1
+- Achievement 2
+- Achievement 3
+
+## Projects
+
+For each project generate:
+
+### Project Name
+
+Brief description.
+
+**Technologies Used:**
+- Technology 1
+- Technology 2
+
+**Key Features:**
+- Feature 1
+- Feature 2
+- Feature 3
+
+## Links
+
+Display all links as clickable markdown links.
+
+## Why Hire Me
+
+Generate a short recruiter-focused section highlighting strengths and impact.
+
+User Information:
+
+Name: ${name}
+
+Role: ${role}
+
+About: ${about}
+
+Skills: ${formattedSkills}
+
+Experience: ${experience}
+
+Projects: ${projects}
+
+Links: ${formattedLinks}
+`;
+
 
     // Request to Gemini API
     const response = await axios.post(geminiAPIUrl, {
@@ -58,6 +123,7 @@ export const generatePortfolioFromGemini = async (req, res) => {
     const portfolioContent =
       response.data?.candidates?.[0]?.content?.parts?.[0]?.text ||
       'No content generated';
+    console.log(portfolioContent);
 
     // Save to MongoDB
     const portfolio = new Portfolio({
