@@ -107,11 +107,11 @@ Resume_Builder/
 
 ### 📝 Portfolio Form
 
-![Portfolio Form](./screenshots/portfolio-form.png)
+![Portfolio Form](./screenshots/portfolio-form1.png)
 
 ### 📄 Generated Portfolio
 
-![Generated Portfolio](./screenshots/generated-portfolio.png)
+![Generated Portfolio](./screenshots/generated-portfolio1.png)
 
 ---
 
