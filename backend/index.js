@@ -17,9 +17,9 @@ app.use(express.urlencoded({extended: true}));
 
 await connectDB();
 
-//app.get("/", (req, res) => {
-// res.status(200).json({messasge:"Hello from backend"});
-//});
+app.get("/", (req, res) => {
+res.status(200).json({messasge:"Hello from backend"});
+});
 
 
 app.use('/api/portfolio', portfolioRoute);
